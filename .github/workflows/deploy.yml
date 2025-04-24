@@ -19,18 +19,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20'
+          cache: 'npm'
 
-      - name: Cache node modules
-        uses: actions/cache@v3
-        with:
-          path: Frontend/node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('Frontend/package.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      - name: Install Dependencies
+      - name: Clean Install
         run: |
           cd Frontend
+          rm -rf node_modules
+          rm -f package-lock.json
           npm install --legacy-peer-deps
 
       - name: Build
