@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',  // Enable static exports
-  basePath: process.env.NODE_ENV === 'production' ? '/Whop-clipping-tool' : '',
+  basePath: '/Whop-clipping-tool',
+  assetPrefix: '/Whop-clipping-tool/',
   eslint: {
     ignoreDuringBuilds: true,
   },
