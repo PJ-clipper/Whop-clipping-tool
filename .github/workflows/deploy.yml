@@ -29,12 +29,18 @@ jobs:
       - name: Install Dependencies
         run: |
           cd Frontend
-          npm install
+          npm install --verbose
+          npm list --depth=0
 
       - name: Build
         run: |
           cd Frontend
-          npm run build
+          npm run build --verbose
+
+      - name: Verify Build Output
+        run: |
+          cd Frontend
+          ls -la out/
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
