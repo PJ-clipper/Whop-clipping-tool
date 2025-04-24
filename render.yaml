@@ -4,6 +4,7 @@ services:
     env: python
     buildCommand: |
       python -m pip install --upgrade pip
+      pip install --upgrade pip
       pip install -r Backend/requirements.txt
       pip uninstall moviepy -y
       pip install moviepy==1.0.3
