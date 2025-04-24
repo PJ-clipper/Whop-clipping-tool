@@ -28,20 +28,18 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install pnpm
-        run: npm install -g pnpm@8
-
       - name: Clean Install Frontend
         run: |
           cd Frontend
           rm -rf node_modules
-          rm -f pnpm-lock.yaml
-          pnpm install
+          rm -f package-lock.json
+          npm install --legacy-peer-deps
 
       - name: Build
         run: |
           cd Frontend
-          pnpm run build
+          npm run build
+          touch out/.nojekyll
 
       - name: Verify Build Output
         run: |
