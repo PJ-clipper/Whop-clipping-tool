@@ -44,8 +44,13 @@ jobs:
           ls -la out/
 
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: Frontend/out
-          publish_branch: gh-pages 
+          folder: Frontend/out
+          branch: gh-pages
+          clean: true
+          clean-exclude: |
+            .git
+            .gitignore
+          single-commit: true
+          force: true 
