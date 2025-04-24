@@ -17,6 +17,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20'
+          cache: 'pnpm'
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
@@ -26,7 +27,7 @@ jobs:
       - name: Install Dependencies
         run: |
           cd Frontend
-          pnpm install
+          pnpm install --frozen-lockfile
 
       - name: Build
         run: |
@@ -37,4 +38,8 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: Frontend/out
-          branch: gh-pages 
+          branch: gh-pages
+          clean: true
+          clean-exclude: |
+            .git
+            .gitignore 
