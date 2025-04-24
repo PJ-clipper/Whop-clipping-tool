@@ -2,7 +2,7 @@ services:
   - type: web
     name: whop-clipper-backend
     env: python
-    rootDir: /opt/render/project/src/Backend
+    rootDir: /opt/render/project/src/backend
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn app:app
     envVars:
