@@ -6,10 +6,11 @@ services:
       python -m pip install --upgrade pip
       pip install --upgrade pip
       pip install -r Backend/requirements.txt
+      pip uninstall moviepy -y
       pip install moviepy==1.0.3
       pip install imageio==2.31.1
       pip install imageio-ffmpeg==0.4.9
-    startCommand: gunicorn Backend.app:app
+    startCommand: cd /opt/render/project/src && gunicorn Backend.app:app
     rootDir: /opt/render/project/src
     envVars:
       - key: PYTHON_VERSION
