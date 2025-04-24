@@ -5,11 +5,13 @@ services:
     buildCommand: |
       python -m pip install --upgrade pip
       pip install -r Backend/requirements.txt
+      pip uninstall moviepy -y
+      pip install moviepy==1.0.3
     startCommand: gunicorn Backend.app:app
     rootDir: /opt/render/project/src
     envVars:
       - key: PYTHON_VERSION
-        value: 3.9.0
+        value: 3.11.0
       - key: PORT
         value: 10000
       - key: UPLOAD_FOLDER
