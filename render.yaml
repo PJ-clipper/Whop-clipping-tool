@@ -2,9 +2,9 @@ services:
   - type: web
     name: whop-clipper-backend
     env: python
-    rootDir: /opt/render/project/src/backend
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app
+    buildCommand: pip install -r Backend/requirements.txt
+    startCommand: gunicorn Backend.app:app
+    rootDir: /opt/render/project/src
     envVars:
       - key: PYTHON_VERSION
         value: 3.9.0

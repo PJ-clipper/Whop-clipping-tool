@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:9999';
+const API_BASE_URL = 'https://whop-clipper-backend.onrender.com';
 
 export interface ServerStatus {
   status: string;
@@ -51,10 +51,7 @@ export const api = {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        filename,
-        ...options,
-      }),
+      body: JSON.stringify({ filename, ...options }),
     });
 
     if (!response.ok) {
