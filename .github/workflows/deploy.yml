@@ -28,17 +28,22 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
       - name: Clean Install Frontend
         run: |
           cd Frontend
           rm -rf node_modules
-          rm -f package-lock.json
-          npm install --legacy-peer-deps
+          rm -f pnpm-lock.yaml
+          pnpm install
 
       - name: Build
         run: |
           cd Frontend
-          npm run build
+          pnpm run build
 
       - name: Verify Build Output
         run: |
