@@ -7,7 +7,7 @@ services:
       python3 -m pip install --upgrade pip
       pip3 install --upgrade pip
       pip3 install -r Backend/requirements.txt
-      pip3 uninstall moviepy -y
+      pip3 uninstall moviepy
       pip3 install moviepy==1.0.3
       pip3 install imageio==2.31.1
       pip3 install imageio-ffmpeg==0.4.9
