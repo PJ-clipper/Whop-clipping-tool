@@ -4,13 +4,13 @@ services:
     env: python
     pythonVersion: "3.11.0"
     buildCommand: |
-      python3 -m pip install --upgrade pip
-      pip3 install --upgrade pip
-      pip3 install -r Backend/requirements.txt
-      pip3 uninstall moviepy
-      pip3 install moviepy==1.0.3
-      pip3 install imageio==2.31.1
-      pip3 install imageio-ffmpeg==0.4.9
+      python -m pip install --upgrade pip
+      pip install --upgrade pip
+      pip install -r Backend/requirements.txt
+      pip uninstall moviepy
+      pip install moviepy==1.0.3
+      pip install imageio==2.31.1
+      pip install imageio-ffmpeg==0.4.9
     startCommand: gunicorn Backend.app:app
     rootDir: .
     envVars:
