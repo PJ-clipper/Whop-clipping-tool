@@ -5,7 +5,6 @@ services:
     pythonVersion: "3.11.0"
     buildCommand: |
       python -m pip install --upgrade pip
-      pip install --upgrade pip
       pip install -r Backend/requirements.txt
       pip uninstall moviepy
       pip install moviepy==1.0.3
